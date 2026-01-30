@@ -40,6 +40,7 @@ def get_jwks():
             data = b"\x00" * (length - len(data)) + data
         return base64.urlsafe_b64encode(data).rstrip(b"=").decode("ascii")
 
+    # 2048-bit key = 256 bytes for n
     return {
         "keys": [
             {
@@ -47,7 +48,7 @@ def get_jwks():
                 "use": "sig",
                 "kid": "fake-key-1",
                 "alg": "RS256",
-                "n": int_to_base64url(pub_numbers.n),
+                "n": int_to_base64url(pub_numbers.n, 256),
                 "e": int_to_base64url(pub_numbers.e),
             }
         ]
