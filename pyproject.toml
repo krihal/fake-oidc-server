@@ -1,0 +1,11 @@
+[project]
+name = "fake-oidc-server"
+version = "0.1.0"
+description = "A fake OIDC server for testing purposes"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cryptography>=46.0.4",
+    "httpserver>=1.1.0",
+    "jwt>=1.4.0",
+]
